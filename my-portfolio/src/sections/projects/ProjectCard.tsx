@@ -13,7 +13,6 @@ interface ProjectCardProps extends Project {
 const ProjectCard: React.FC<ProjectCardProps> = ({ 
   title, 
   description, 
-  image, 
   techStack, 
   github, 
   demo,
