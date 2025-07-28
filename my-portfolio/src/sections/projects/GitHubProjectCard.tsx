@@ -9,7 +9,6 @@ interface GitHubProjectCardProps extends TransformedRepo {}
 const GitHubProjectCard: React.FC<GitHubProjectCardProps> = ({ 
   title, 
   description, 
-  image, 
   techStack, 
   github, 
   demo, 

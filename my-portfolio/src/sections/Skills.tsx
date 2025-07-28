@@ -4,7 +4,6 @@ import { skillsData } from './skills/skillsData';
 import SkillCategoryTabs from './skills/SkillCategoryTabs';
 import SkillGrid from './skills/SkillGrid';
 import SkillProgress from './skills/SkillProgress';
-import ContributionGraph from './ContributionGraph';
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -45,7 +44,6 @@ export default function Skills() {
               visible: { opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.8, type: "spring" } }
             }}
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 gradient-shimmer"
-            style={{ background: 'linear-gradient(90deg, #06b6d4, #2563eb, #a78bfa, #f472b6)', WebkitBackgroundClip: 'text', color: 'transparent', backgroundClip: 'text' }}
           >
             My <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Skills</span>
           </motion.h2>

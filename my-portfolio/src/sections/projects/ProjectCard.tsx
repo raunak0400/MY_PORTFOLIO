@@ -17,11 +17,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   techStack, 
   github, 
   demo,
-  stars,
-  forks,
-  language,
-  lastUpdated,
-  isFromGitHub
 }) => {
   return (
     <motion.div 

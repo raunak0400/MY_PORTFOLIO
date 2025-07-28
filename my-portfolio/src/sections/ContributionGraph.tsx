@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { FaGithub, FaCalendarAlt, FaFire } from 'react-icons/fa';
 import GitHubCalendar from 'react-github-calendar';

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useMemo } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { FaGithub, FaSpinner, FaExclamationTriangle } from 'react-icons/fa';
 import ProjectCard from './projects/ProjectCard';

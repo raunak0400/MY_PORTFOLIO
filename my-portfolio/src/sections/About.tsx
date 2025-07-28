@@ -2,7 +2,7 @@ import AnimatedBackground from "./about/AnimatedBackground";
 import ProfileImage from "./about/ProfileImage";
 import ResumeButton from "./about/ResumeButton";
 import { motion, useAnimation, useInView, useMotionValue, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { 
   FaInstagram, 
   FaLinkedin, 
