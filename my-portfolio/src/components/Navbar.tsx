@@ -1,6 +1,5 @@
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
-import logo from '../assets/logo.png'; // or logo.svg
 
 const navLinks = [
   { name: 'Home', to: 'hero' },
@@ -27,7 +26,7 @@ export default function Navbar() {
         {/* Logo and Brand */}
         <div className="flex items-center gap-3">
           <img
-            src={logo}
+            src="/assets/logo.png"
             alt="Raunak Kumar Jha Logo"
             className="h-12 w-12 object-contain rounded-full shadow-md"
             style={{ background: "#fff" }} // optional: white bg for contrast

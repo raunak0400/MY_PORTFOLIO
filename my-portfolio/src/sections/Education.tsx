@@ -6,14 +6,14 @@ const educationData = [
     title: 'Chaitanya School, Lekawada, Gandhinagar',
     description: 'Passed with Central Board of Secondary Education with 96%',
     year: '2022',
-    pdf: '/src/assets/10.pdf',
+    pdf: '/assets/10.pdf',
     icon: <FaSchool className="text-cyan-400" />,
   },
   {
     title: 'Omlandmark School, Mota Chiloda, Gandhinagar',
     description: 'Passed with Central Board of Secondary Education with 87% (Science stream)',
     year: '2024',
-    pdf: '/src/assets/12.pdf',
+    pdf: '/assets/12.pdf',
     icon: <FaSchool className="text-fuchsia-400" />,
   },
   {

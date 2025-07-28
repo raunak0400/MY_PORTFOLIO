@@ -264,7 +264,7 @@ export default function About() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <ProfileImage />
+                  <img src="/assets/me.jpg" alt="Profile" className="w-full h-full object-cover" />
                 </motion.div>
                 
                 {/* Animated Border */}
