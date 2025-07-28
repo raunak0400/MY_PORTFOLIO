@@ -35,22 +35,35 @@ export default function Contact() {
     e.preventDefault();
     if (!validate()) return;
     setStatus('loading');
+    setError('');
+    
     try {
+      console.log('Sending form data:', form);
+      
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
+      
+      console.log('Response status:', res.status);
+      
+      const data = await res.json();
+      console.log('Response data:', data);
+      
       if (res.ok) {
         setStatus('success');
         setForm(initialForm);
+        console.log('Email sent successfully!');
       } else {
         setStatus('error');
-        setError('Failed to send message. Please try again later.');
+        setError(data.error || 'Failed to send message. Please try again later.');
+        console.error('API error:', data);
       }
     } catch (err) {
+      console.error('Network error:', err);
       setStatus('error');
-      setError('Failed to send message. Please try again later.');
+      setError('Network error. Please check your connection and try again.');
     }
   };
 
