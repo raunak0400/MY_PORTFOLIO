@@ -60,7 +60,6 @@ export default function Navbar() {
                   initial="initial"
                   whileHover="hover"
                   animate="initial"
-                  style={{ width: '0%' }}
                   layoutId={`underline-${link.to}`}
                 />
               </Link>
@@ -74,7 +73,7 @@ export default function Navbar() {
             transition={{ type: 'spring', stiffness: 400, damping: 12 }}
           >
             <motion.a
-              href="/src/assets/resume.pdf"
+              href="/assets/resume.pdf"
               download
               className="relative px-7 py-2 rounded-full font-extrabold text-white bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400 shadow-xl border-2 border-blue-500 transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 overflow-hidden flex items-center justify-center"
               whileHover={{

@@ -7,7 +7,7 @@ import {
   FaEnvelope
 } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
-import leetcodeLogo from '../../assets/leetcode.png';
+
 
 interface SocialItem {
   name: string;
@@ -49,7 +49,7 @@ const socialItems: SocialItem[] = [
   {
     name: 'LeetCode',
     Icon: () => (
-      <img src={leetcodeLogo} alt="LeetCode" className="w-8 h-8 object-contain" />
+      <img src="/assets/leetcode.png" alt="LeetCode" className="w-8 h-8 object-contain" />
     ),
     url: 'https://leetcode.com/raunak0400/',
     gradient: 'from-gray-100 to-gray-200',

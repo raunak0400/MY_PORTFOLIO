@@ -13,7 +13,7 @@ export default function ResumeButton() {
 
   return (
     <motion.a
-      href="/src/assets/resume.pdf"
+      href="/assets/resume.pdf"
       download
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}

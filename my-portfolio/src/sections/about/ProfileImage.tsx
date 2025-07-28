@@ -13,7 +13,7 @@ export default function ProfileImage() {
     >
       <div className="relative max-w-xs w-full aspect-[834/1074] rounded-2xl overflow-hidden border-4 border-cyan-400 shadow-xl group-hover:shadow-cyan-400/60 transition-all duration-300 bg-black flex items-center justify-center">
         <img
-          src="/src/assets/me.jpg"
+          src="/assets/me.jpg"
           alt="Raunak Kumar Jha"
           className="w-full h-full object-contain object-center bg-black"
         />
