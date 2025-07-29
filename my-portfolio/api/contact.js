@@ -29,8 +29,10 @@ export default async function handler(req, res) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
+    console.log('Attempting to send email with data:', { name, email, subject, message: message.substring(0, 100) + '...' });
+    
     const result = await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>',
+      from: 'onboarding@resend.dev',
       to: 'raunakkumarjha233@gmail.com',
       subject: `[Portfolio] ${subject}`,
       reply_to: email,
@@ -54,9 +56,17 @@ export default async function handler(req, res) {
     });
     
     console.log('Email sent successfully:', result);
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
     console.error('Failed to send email:', error);
-    return res.status(500).json({ error: 'Failed to send email. Please try again later.' });
+    console.error('Error details:', {
+      message: error.message,
+      code: error.code,
+      statusCode: error.statusCode
+    });
+    return res.status(500).json({ 
+      error: 'Failed to send email. Please try again later.',
+      details: error.message 
+    });
   }
 } 
