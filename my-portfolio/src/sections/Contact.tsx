@@ -54,7 +54,9 @@ const Contact = () => {
             name: form.name,
             email: form.email,
             subject: form.subject,
-            message: form.message
+            message: form.message,
+            title: form.subject, // Add this if your template uses {{title}}
+            time: new Date().toLocaleString() // Add this if your template uses {{time}}
           },
           EMAILJS_PUBLIC_KEY
         );
