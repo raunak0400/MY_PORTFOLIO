@@ -87,36 +87,36 @@ export default function SkillCard({ skill, index }: SkillCardProps) {
       transition={{ duration: 0.6, delay: index * 0.08, type: 'spring', stiffness: 120 }}
       whileHover={{ scale: 1.06, boxShadow: `0 8px 32px ${skill.color}55`, borderColor: skill.color }}
       whileTap={{ scale: 0.97 }}
-      className="relative group bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20 hover:border-white/60 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl overflow-hidden"
+      className="relative group bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 hover:border-white/60 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl overflow-hidden"
     >
       {/* Icon and Name */}
-      <div className="flex items-center gap-4 mb-4">
+      <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
         <motion.div
-          className="p-3 rounded-xl flex items-center justify-center"
+          className="p-2 sm:p-3 rounded-lg sm:rounded-xl flex items-center justify-center"
           style={{ backgroundColor: `${skill.color}20` }}
           whileHover={{ scale: 1.15, rotate: 8 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          <IconComponent size={34} style={{ color: skill.color }} />
+          <IconComponent size={28} className="sm:w-8 sm:h-8" style={{ color: skill.color }} />
         </motion.div>
-        <div className="flex-1">
-          <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors duration-300">
+        <div className="flex-1 min-w-0">
+          <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-cyan-300 transition-colors duration-300 truncate">
             {skill.name}
           </h3>
           {skill.description && (
-            <p className="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p className="text-xs sm:text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 line-clamp-2">
               {skill.description}
             </p>
           )}
         </div>
       </div>
       {/* Progress Bar */}
-      <div className="space-y-2">
+      <div className="space-y-1.5 sm:space-y-2">
         <div className="flex justify-between items-center">
-          <span className="text-sm font-medium text-gray-300">Proficiency</span>
-          <span className="text-sm font-bold text-cyan-400">{skill.level}%</span>
+          <span className="text-xs sm:text-sm font-medium text-gray-300">Proficiency</span>
+          <span className="text-xs sm:text-sm font-bold text-cyan-400">{skill.level}%</span>
         </div>
-        <div className="w-full bg-gray-700/50 rounded-full h-2 overflow-hidden">
+        <div className="w-full bg-gray-700/50 rounded-full h-1.5 sm:h-2 overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${skill.level}%` }}
@@ -135,7 +135,7 @@ export default function SkillCard({ skill, index }: SkillCardProps) {
       </div>
       {/* Category Badge */}
       <motion.span
-        className="mt-4 px-3 py-1 rounded-full text-xs font-medium inline-block"
+        className="mt-3 sm:mt-4 px-2 sm:px-3 py-1 rounded-full text-xs font-medium inline-block"
         style={{ backgroundColor: `${skill.color}20`, color: skill.color, border: `1px solid ${skill.color}40` }}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -145,7 +145,7 @@ export default function SkillCard({ skill, index }: SkillCardProps) {
       </motion.span>
       {/* Animated Arrow */}
       <motion.span
-        className="absolute right-6 bottom-6 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="absolute right-4 sm:right-6 bottom-4 sm:bottom-6 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm sm:text-base"
         initial={{ x: 0 }}
         whileHover={{ x: 8 }}
         transition={{ type: 'spring', stiffness: 200 }}
