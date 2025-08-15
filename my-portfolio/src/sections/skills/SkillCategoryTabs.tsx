@@ -8,7 +8,7 @@ interface SkillCategoryTabsProps {
 
 export default function SkillCategoryTabs({ activeCategory, onCategoryChange }: SkillCategoryTabsProps) {
   return (
-    <div className="flex flex-wrap justify-center gap-2 mb-8">
+    <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6 sm:mb-8 px-2">
       {skillCategories.map((category, index) => (
         <motion.button
           key={category.value}
@@ -18,7 +18,7 @@ export default function SkillCategoryTabs({ activeCategory, onCategoryChange }: 
           whileHover={{ scale: 1.10, y: -2, background: 'linear-gradient(90deg, #06b6d4 0%, #2563eb 100%)', color: '#fff', boxShadow: '0 4px 24px #06b6d4aa' }}
           whileTap={{ scale: 0.97 }}
           onClick={() => onCategoryChange(category.value)}
-          className={`relative px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300
+          className={`relative px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-full font-semibold text-xs sm:text-sm transition-all duration-300
                      border-2 backdrop-blur-sm overflow-hidden group focus:outline-none
                      ${activeCategory === category.value
                        ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-cyan-400 shadow-lg shadow-cyan-500/25'

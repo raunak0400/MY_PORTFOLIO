@@ -71,7 +71,7 @@ const Projects = () => {
     <section
       id="projects"
       ref={projectsRef}
-      className="relative min-h-screen flex flex-col justify-center py-16 bg-black overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center py-12 sm:py-16 bg-black overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
@@ -81,7 +81,7 @@ const Projects = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-500" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -89,7 +89,7 @@ const Projects = () => {
           variants={{
             visible: { opacity: 1, y: 0, transition: { duration: 0.8, type: "spring" } }
           }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -97,7 +97,7 @@ const Projects = () => {
             variants={{
               visible: { opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.8, type: "spring" } }
             }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 gradient-shimmer"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 gradient-shimmer"
             style={{ background: 'linear-gradient(90deg, #06b6d4, #2563eb, #a78bfa, #f472b6)', WebkitBackgroundClip: 'text', color: 'transparent', backgroundClip: 'text' }}
           >
             My <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projects</span>
@@ -108,7 +108,7 @@ const Projects = () => {
             variants={{
               visible: { opacity: 1, y: 0, transition: { delay: 0.4, duration: 0.8, type: "spring" } }
             }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto px-4"
           >
             A showcase of my latest work and technical projects, demonstrating my skills in full-stack development and modern web technologies.
           </motion.p>
@@ -121,12 +121,12 @@ const Projects = () => {
           variants={{
             visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.8, type: "spring" } }
           }}
-          className="flex justify-center mb-8"
+          className="flex justify-center mb-6 sm:mb-8"
         >
           <div className="bg-white/10 backdrop-blur-xl rounded-full p-1 border border-white/20">
             <motion.button
               onClick={() => setIsGitHubMode(false)}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
                 !isGitHubMode 
                   ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg' 
                   : 'text-gray-300 hover:text-white'
@@ -138,7 +138,7 @@ const Projects = () => {
             </motion.button>
             <motion.button
               onClick={() => setIsGitHubMode(true)}
-              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
+              className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-1 sm:gap-2 ${
                 isGitHubMode 
                   ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg' 
                   : 'text-gray-300 hover:text-white'
@@ -147,7 +147,8 @@ const Projects = () => {
               whileTap={{ scale: 0.95 }}
             >
               <FaGithub />
-              GitHub Repos
+              <span className="hidden sm:inline">GitHub Repos</span>
+              <span className="sm:hidden">GitHub</span>
             </motion.button>
           </div>
         </motion.div>
@@ -169,7 +170,7 @@ const Projects = () => {
           variants={{
             visible: { opacity: 1, y: 0, transition: { delay: 0.6, duration: 0.8, type: "spring" } }
           }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
         >
           {isLoading ? (
             // Loading state
@@ -179,25 +180,25 @@ const Projects = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="bg-white/10 backdrop-blur-xl rounded-2xl h-80 flex items-center justify-center"
+                className="bg-white/10 backdrop-blur-xl rounded-2xl h-64 sm:h-80 flex items-center justify-center"
               >
                 <div className="flex items-center gap-3 text-cyan-400">
-                  <FaSpinner className="animate-spin text-xl" />
-                  <span>Loading...</span>
+                  <FaSpinner className="animate-spin text-lg sm:text-xl" />
+                  <span className="text-sm sm:text-base">Loading...</span>
                 </div>
               </motion.div>
             ))
           ) : error ? (
             // Error state
-            <div className="col-span-full text-center py-12">
+            <div className="col-span-full text-center py-8 sm:py-12">
               <div className="flex items-center justify-center gap-3 text-red-400 mb-4">
-                <FaExclamationTriangle className="text-2xl" />
-                <span className="text-lg font-semibold">Error Loading Projects</span>
+                <FaExclamationTriangle className="text-xl sm:text-2xl" />
+                <span className="text-base sm:text-lg font-semibold">Error Loading Projects</span>
               </div>
-              <p className="text-gray-400 mb-6">{error}</p>
+              <p className="text-gray-400 mb-6 text-sm sm:text-base">{error}</p>
               <motion.button
                 onClick={fetchGitHubProjects}
-                className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300"
+                className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -206,13 +207,13 @@ const Projects = () => {
             </div>
           ) : filteredProjects.length === 0 ? (
             // No projects found
-            <div className="col-span-full text-center py-12">
-              <div className="text-gray-400 text-lg mb-4">
+            <div className="col-span-full text-center py-8 sm:py-12">
+              <div className="text-gray-400 text-base sm:text-lg mb-4">
                 No projects found with the selected filter
               </div>
               <motion.button
                 onClick={() => setActiveFilter('all')}
-                className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300"
+                className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -255,10 +256,10 @@ const Projects = () => {
           variants={{
             visible: { opacity: 1, y: 0, transition: { delay: 1.4, duration: 0.8, type: "spring" } }
           }}
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-12"
         >
           <motion.p
-            className="text-gray-400 text-lg mb-6"
+            className="text-gray-400 text-base sm:text-lg mb-4 sm:mb-6"
             whileHover={{ scale: 1.02 }}
           >
             Always building and learning new technologies
@@ -269,11 +270,12 @@ const Projects = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.08, boxShadow: "0 0 32px #38bdf8, 0 0 80px #2563eb" }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-semibold 
-                     hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-semibold 
+                     hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg text-sm sm:text-base"
           >
             <FaGithub />
-            View More on GitHub
+            <span className="hidden sm:inline">View More on GitHub</span>
+            <span className="sm:hidden">View GitHub</span>
           </motion.a>
         </motion.div>
       </div>

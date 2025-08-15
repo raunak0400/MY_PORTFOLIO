@@ -14,7 +14,7 @@ const ContributionGraph = () => {
     <section
       id="contributions"
       ref={graphRef}
-      className="relative min-h-screen flex flex-col justify-center py-16 bg-black overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center py-12 sm:py-16 bg-black overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
@@ -24,7 +24,7 @@ const ContributionGraph = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-500" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -32,7 +32,7 @@ const ContributionGraph = () => {
           variants={{
             visible: { opacity: 1, y: 0, transition: { duration: 0.8, type: "spring" } }
           }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
@@ -40,7 +40,7 @@ const ContributionGraph = () => {
             variants={{
               visible: { opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.8, type: "spring" } }
             }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 gradient-shimmer"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 gradient-shimmer"
             style={{ background: 'linear-gradient(90deg, #06b6d4, #2563eb, #a78bfa, #f472b6)', WebkitBackgroundClip: 'text', color: 'transparent', backgroundClip: 'text' }}
           >
             GitHub <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Contribution Graph</span>
@@ -51,7 +51,7 @@ const ContributionGraph = () => {
             variants={{
               visible: { opacity: 1, y: 0, transition: { delay: 0.4, duration: 0.8, type: "spring" } }
             }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto px-4"
           >
             A visual representation of my coding activity and contributions over the past year, showcasing my dedication to continuous learning and development.
           </motion.p>
@@ -64,7 +64,7 @@ const ContributionGraph = () => {
           variants={{
             visible: { opacity: 1, y: 0, transition: { delay: 0.6, duration: 0.8, type: "spring" } }
           }}
-          className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl"
+          className="bg-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-2xl"
         >
           {/* GitHub Stats Header */}
           <motion.div
@@ -73,27 +73,27 @@ const ContributionGraph = () => {
             variants={{
               visible: { opacity: 1, y: 0, transition: { delay: 0.8, duration: 0.8, type: "spring" } }
             }}
-            className="flex flex-wrap justify-center gap-8 mb-8"
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8"
           >
-            <div className="flex items-center gap-3 text-cyan-400">
-              <FaGithub className="text-2xl" />
+            <div className="flex items-center gap-2 sm:gap-3 text-cyan-400">
+              <FaGithub className="text-xl sm:text-2xl" />
               <div className="text-center">
-                <div className="text-2xl font-bold">raunak0400</div>
-                <div className="text-sm text-gray-400">GitHub Profile</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold">raunak0400</div>
+                <div className="text-xs sm:text-sm text-gray-400">GitHub Profile</div>
               </div>
             </div>
-            <div className="flex items-center gap-3 text-green-400">
-              <FaCalendarAlt className="text-2xl" />
+            <div className="flex items-center gap-2 sm:gap-3 text-green-400">
+              <FaCalendarAlt className="text-xl sm:text-2xl" />
               <div className="text-center">
-                <div className="text-2xl font-bold">365</div>
-                <div className="text-sm text-gray-400">Days Active</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold">365</div>
+                <div className="text-xs sm:text-sm text-gray-400">Days Active</div>
               </div>
             </div>
-            <div className="flex items-center gap-3 text-orange-400">
-              <FaFire className="text-2xl" />
+            <div className="flex items-center gap-2 sm:gap-3 text-orange-400">
+              <FaFire className="text-xl sm:text-2xl" />
               <div className="text-center">
-                <div className="text-2xl font-bold">1,234</div>
-                <div className="text-sm text-gray-400">Total Contributions</div>
+                <div className="text-lg sm:text-xl md:text-2xl font-bold">1,234</div>
+                <div className="text-xs sm:text-sm text-gray-400">Total Contributions</div>
               </div>
             </div>
           </motion.div>
@@ -105,14 +105,14 @@ const ContributionGraph = () => {
             variants={{
               visible: { opacity: 1, scale: 1, transition: { delay: 1.0, duration: 0.8, type: "spring" } }
             }}
-            className="bg-black/30 rounded-2xl p-8 border border-white/10"
+            className="bg-black/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/10 overflow-x-auto"
           >
-            <div className="flex justify-center">
+            <div className="flex justify-center min-w-[600px] sm:min-w-0">
               <GitHubCalendar
                 username="raunak0400"
-                blockSize={12}
-                blockMargin={4}
-                fontSize={15}
+                blockSize={10}
+                blockMargin={3}
+                fontSize={12}
                 theme={{
                   light: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
                   dark: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353']
@@ -131,15 +131,15 @@ const ContributionGraph = () => {
             variants={{
               visible: { opacity: 1, y: 0, transition: { delay: 1.4, duration: 0.8, type: "spring" } }
             }}
-            className="flex justify-center items-center gap-6 mt-8 text-sm text-gray-400"
+            className="flex justify-center items-center gap-4 sm:gap-6 mt-6 sm:mt-8 text-xs sm:text-sm text-gray-400"
           >
             <span>Less</span>
             <div className="flex gap-1">
-              <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: '#161b22' }}></div>
-              <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: '#0e4429' }}></div>
-              <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: '#006d32' }}></div>
-              <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: '#26a641' }}></div>
-              <div className="w-3 h-3 rounded-sm" style={{ backgroundColor: '#39d353' }}></div>
+              <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-sm" style={{ backgroundColor: '#161b22' }}></div>
+              <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-sm" style={{ backgroundColor: '#0e4429' }}></div>
+              <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-sm" style={{ backgroundColor: '#006d32' }}></div>
+              <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-sm" style={{ backgroundColor: '#26a641' }}></div>
+              <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-sm" style={{ backgroundColor: '#39d353' }}></div>
             </div>
             <span>More</span>
           </motion.div>
@@ -152,10 +152,10 @@ const ContributionGraph = () => {
           variants={{
             visible: { opacity: 1, y: 0, transition: { delay: 1.6, duration: 0.8, type: "spring" } }
           }}
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-12"
         >
           <motion.p
-            className="text-gray-400 text-lg mb-6"
+            className="text-gray-400 text-base sm:text-lg mb-4 sm:mb-6"
             whileHover={{ scale: 1.02 }}
           >
             Consistent coding and continuous improvement
@@ -166,11 +166,12 @@ const ContributionGraph = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.08, boxShadow: "0 0 32px #38bdf8, 0 0 80px #2563eb" }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-semibold 
-                     hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-semibold 
+                     hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg text-sm sm:text-base"
           >
             <FaGithub />
-            View Full Profile
+            <span className="hidden sm:inline">View Full Profile</span>
+            <span className="sm:hidden">View Profile</span>
           </motion.a>
         </motion.div>
       </div>
