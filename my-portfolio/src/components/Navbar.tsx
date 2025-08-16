@@ -22,7 +22,7 @@ const mobileMenuVariants = {
     x: '100%',
     transition: {
       duration: 0.3,
-      ease: 'easeInOut'
+      ease: 'easeInOut' as const
     }
   },
   open: {
@@ -30,7 +30,7 @@ const mobileMenuVariants = {
     x: 0,
     transition: {
       duration: 0.3,
-      ease: 'easeInOut'
+      ease: 'easeInOut' as const
     }
   }
 };
