@@ -1,5 +1,7 @@
 import { Link } from 'react-scroll';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const navLinks = [
   { name: 'Home', to: 'hero' },
@@ -14,7 +16,36 @@ const underlineVariants = {
   hover: { width: '100%', opacity: 1, transition: { duration: 0.3 } },
 };
 
+const mobileMenuVariants = {
+  closed: {
+    opacity: 0,
+    x: '100%',
+    transition: {
+      duration: 0.3,
+      ease: 'easeInOut' as const
+    }
+  },
+  open: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.3,
+      ease: 'easeInOut' as const
+    }
+  }
+};
+
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
@@ -28,18 +59,20 @@ export default function Navbar() {
           <img
             src="/assets/logo.png"
             alt="Raunak Kumar Jha Logo"
-            className="h-12 w-12 object-contain rounded-full shadow-md"
-            style={{ background: "#fff" }} // optional: white bg for contrast
+            className="h-10 w-10 sm:h-12 sm:w-12 object-contain rounded-full shadow-md"
+            style={{ background: "#fff" }}
           />
-          <span className="text-xl font-extrabold text-blue-600 tracking-tight select-none hidden sm:inline">
+          <span className="text-lg sm:text-xl font-extrabold text-blue-600 tracking-tight select-none hidden sm:inline">
             MyPortfolio
           </span>
         </div>
-        <ul className="flex space-x-6 items-center">
+
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center space-x-6">
           {navLinks.map(link => (
             <motion.li
               key={link.to}
-              className="relative px-2 py-1 group"
+              className="relative px-2 py-1 group list-none"
               whileHover={{ y: -3, scale: 1.12 }}
               transition={{ type: 'spring', stiffness: 500, damping: 18 }}
             >
@@ -67,7 +100,7 @@ export default function Navbar() {
           ))}
           {/* Advanced Resume Button */}
           <motion.li
-            className="ml-2 relative group"
+            className="ml-2 relative group list-none"
             whileHover={{ scale: 1.15, rotate: [0, 2, -2, 0], y: -4 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 400, damping: 12 }}
@@ -75,7 +108,7 @@ export default function Navbar() {
             <motion.a
               href="/assets/resume.pdf"
               download
-              className="relative px-7 py-2 rounded-full font-extrabold text-white bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400 shadow-xl border-2 border-blue-500 transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 overflow-hidden flex items-center justify-center"
+              className="relative px-6 py-2 rounded-full font-extrabold text-white bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400 shadow-xl border-2 border-blue-500 transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 overflow-hidden flex items-center justify-center text-sm"
               whileHover={{
                 boxShadow: '0 0 32px 8px #38bdf8, 0 0 80px 20px #2563eb',
                 background: 'linear-gradient(90deg, #2563eb 0%, #38bdf8 100%)',
@@ -99,8 +132,106 @@ export default function Navbar() {
               </span>
             </motion.a>
           </motion.li>
-        </ul>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="lg:hidden">
+          <motion.button
+            onClick={toggleMobileMenu}
+            className="p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            {isMobileMenuOpen ? (
+              <FaTimes className="text-xl" />
+            ) : (
+              <FaBars className="text-xl" />
+            )}
+          </motion.button>
+        </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeMobileMenu}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden z-40"
+            />
+            
+            {/* Mobile Menu */}
+            <motion.div
+              variants={mobileMenuVariants}
+              initial="closed"
+              animate="open"
+              exit="closed"
+              className="fixed top-0 right-0 h-full w-80 max-w-[80vw] bg-white/95 backdrop-blur-xl shadow-2xl lg:hidden z-50"
+            >
+              <div className="flex flex-col h-full">
+                {/* Mobile Menu Header */}
+                <div className="flex items-center justify-between p-6 border-b border-gray-200">
+                  <span className="text-xl font-bold text-blue-600">Menu</span>
+                  <motion.button
+                    onClick={closeMobileMenu}
+                    className="p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <FaTimes className="text-xl" />
+                  </motion.button>
+                </div>
+
+                {/* Mobile Navigation Links */}
+                <nav className="flex-1 p-6">
+                  <ul className="space-y-4">
+                    {navLinks.map((link, index) => (
+                      <motion.li
+                        key={link.to}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1, duration: 0.3 }}
+                        className="list-none"
+                      >
+                        <Link
+                          to={link.to}
+                          smooth={true}
+                          duration={500}
+                          offset={-70}
+                          onClick={closeMobileMenu}
+                          className="block text-lg font-semibold text-gray-700 hover:text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-all duration-200"
+                          activeClass="text-blue-600 bg-blue-50"
+                          spy={true}
+                        >
+                          {link.name}
+                        </Link>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </nav>
+
+                {/* Mobile Resume Button */}
+                <div className="p-6 border-t border-gray-200">
+                  <motion.a
+                    href="/assets/resume.pdf"
+                    download
+                    onClick={closeMobileMenu}
+                    className="block w-full text-center py-3 px-6 bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400 text-white font-semibold rounded-lg shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-300"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Download Resume
+                  </motion.a>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }   

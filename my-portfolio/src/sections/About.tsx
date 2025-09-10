@@ -98,7 +98,7 @@ export default function About() {
       id="about"
       ref={aboutRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex flex-col items-center justify-center py-12 sm:py-16 md:py-24 bg-black overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center py-8 sm:py-12 md:py-16 lg:py-24 bg-black overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       <AnimatedBackground />
       
@@ -158,7 +158,7 @@ export default function About() {
             } 
           },
         }}
-        className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white mb-12 text-center relative z-10"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white mb-8 sm:mb-12 text-center relative z-10"
         style={{
           textShadow: "0 8px 32px rgba(0,0,0,0.5)",
           letterSpacing: "0.03em"
@@ -205,18 +205,18 @@ export default function About() {
           },
         }}
         style={{ x: parallaxX, y: parallaxY, willChange: 'transform' }}
-        className="relative z-10 w-full max-w-7xl mx-auto bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-6 sm:p-8 md:p-12"
+        className="relative z-10 w-full max-w-7xl mx-auto bg-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-white/20 p-4 sm:p-6 md:p-8 lg:p-12"
       >
         {/* Glowing Border Effect */}
         <motion.div
-          className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 opacity-0"
+          className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 opacity-0"
           animate={{ opacity: [0, 0.5, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-12">
           
           {/* Left Section */}
-          <div className="flex flex-col items-center lg:items-start gap-6 lg:w-1/3">
+          <div className="flex flex-col items-center lg:items-start gap-4 sm:gap-6 lg:w-1/3">
             
             {/* Profile Image with Enhanced Effects */}
             <motion.div
@@ -240,7 +240,7 @@ export default function About() {
             >
               {/* Multiple Glowing Rings */}
               <motion.div
-                className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-400 to-blue-500 opacity-20 blur-xl"
+                className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-cyan-400 to-blue-500 opacity-20 blur-xl"
                 animate={{ 
                   scale: [1, 1.2, 1],
                   opacity: [0.2, 0.4, 0.2]
@@ -248,7 +248,7 @@ export default function About() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-400 to-pink-500 opacity-20 blur-lg"
+                className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-purple-400 to-pink-500 opacity-20 blur-lg"
                 animate={{ 
                   scale: [1.2, 1, 1.2],
                   opacity: [0.2, 0.4, 0.2]
@@ -257,7 +257,7 @@ export default function About() {
               />
               
               {/* Main Image Container */}
-              <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden border-4 border-cyan-400/50 shadow-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-cyan-400/50 shadow-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20">
                 <motion.div
                   className="w-full h-full"
                   whileHover={{ scale: 1.05 }}
@@ -268,7 +268,7 @@ export default function About() {
                 
                 {/* Animated Border */}
                 <motion.div
-                  className="absolute inset-0 rounded-3xl border-4 border-cyan-400 pointer-events-none"
+                  className="absolute inset-0 rounded-2xl sm:rounded-3xl border-4 border-cyan-400 pointer-events-none"
                   animate={{ 
                     boxShadow: [
                       "0 0 20px rgba(6, 182, 212, 0.5)",
@@ -283,7 +283,7 @@ export default function About() {
               
               {/* Floating Elements Around Image */}
               <motion.div
-                className="absolute -top-2 -right-2 w-4 h-4 bg-cyan-400 rounded-full"
+                className="absolute -top-2 -right-2 w-3 h-3 sm:w-4 sm:h-4 bg-cyan-400 rounded-full"
                 animate={{ 
                   y: [0, -10, 0],
                   opacity: [0.5, 1, 0.5]
@@ -291,7 +291,7 @@ export default function About() {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute -bottom-2 -left-2 w-3 h-3 bg-purple-400 rounded-full"
+                className="absolute -bottom-2 -left-2 w-2 h-2 sm:w-3 sm:h-3 bg-purple-400 rounded-full"
                 animate={{ 
                   y: [0, 10, 0],
                   opacity: [0.5, 1, 0.5]
@@ -319,7 +319,7 @@ export default function About() {
               className="w-full max-w-sm"
             >
               <motion.div
-                className="bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 shadow-2xl relative overflow-hidden"
+                className="bg-gray-900/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-700/50 shadow-2xl relative overflow-hidden"
                 whileHover={{ 
                   scale: 1.02, 
                   boxShadow: "0 12px 40px rgba(6, 182, 212, 0.4)",
@@ -341,7 +341,7 @@ export default function About() {
                 />
                 
                 <motion.div
-                  className="text-cyan-400 text-xs font-mono mb-3 opacity-70 flex items-center"
+                  className="text-cyan-400 text-xs font-mono mb-2 sm:mb-3 opacity-70 flex items-center"
                   animate={{ opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
@@ -350,7 +350,7 @@ export default function About() {
                 </motion.div>
                 
                 <motion.p
-                  className="text-gray-200 text-sm leading-relaxed font-medium italic mb-3"
+                  className="text-gray-200 text-xs sm:text-sm leading-relaxed font-medium italic mb-2 sm:mb-3"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 1 }}
@@ -390,9 +390,9 @@ export default function About() {
               variants={{
                 visible: { opacity: 1, x: 0, transition: { delay: 0.3, duration: 0.8, type: "spring" } },
               }}
-              className="h-96 md:h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-600/50 scrollbar-track-transparent pr-2"
+              className="h-64 sm:h-80 md:h-96 lg:h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-600/50 scrollbar-track-transparent pr-2"
             >
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {/* About Me Section */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -401,11 +401,11 @@ export default function About() {
                     visible: { opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.8, type: "spring" } },
                   }}
                 >
-                  <h2 className="text-2xl md:text-3xl font-bold text-cyan-300 mb-4 flex items-center">
-                    <span className="mr-3">##</span>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-300 mb-3 sm:mb-4 flex items-center">
+                    <span className="mr-2 sm:mr-3">##</span>
                     <span className="gradient-text">About Me</span>
                   </h2>
-                  <div className="text-gray-200 leading-relaxed space-y-4 text-sm md:text-base">
+                  <div className="text-gray-200 leading-relaxed space-y-3 sm:space-y-4 text-sm sm:text-base">
                     <p>
                       Hi, I'm <span className="font-bold text-white">Raunak Kumar Jha</span>, a passionate and results-driven developer dedicated to building impactful digital experiences. I am currently pursuing a <span className="font-semibold text-cyan-200">B.Tech in Computer Science Engineering at Gandhinagar University</span>, complemented by a <span className="font-semibold text-yellow-200">micro-credit program from IIT Guwahati</span> to strengthen my technical expertise and industry exposure.
                     </p>
@@ -435,11 +435,11 @@ export default function About() {
                     visible: { opacity: 1, y: 0, transition: { delay: 0.8, duration: 0.8, type: "spring" } },
                   }}
                 >
-                  <h2 className="text-2xl md:text-3xl font-bold text-cyan-300 mb-4 flex items-center">
-                    <span className="mr-3">##</span>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-300 mb-3 sm:mb-4 flex items-center">
+                    <span className="mr-2 sm:mr-3">##</span>
                     <span className="gradient-text">Vision</span>
                   </h2>
-                  <div className="text-gray-200 leading-relaxed space-y-4 text-sm md:text-base">
+                  <div className="text-gray-200 leading-relaxed space-y-3 sm:space-y-4 text-sm sm:text-base">
                     <p>
                       My vision is simple yet powerful: to <span className="font-semibold text-cyan-200">use technology as a tool for innovation and transformation</span>. I aim to create software solutions that simplify processes, enhance user experiences, and provide long-term value. Whether it's designing a clean user interface or optimizing backend processes for performance, I strive to build applications that are efficient, scalable, and impactful.
                     </p>
@@ -466,11 +466,11 @@ export default function About() {
                     visible: { opacity: 1, y: 0, transition: { delay: 1.1, duration: 0.8, type: "spring" } },
                   }}
                 >
-                  <h2 className="text-2xl md:text-3xl font-bold text-cyan-300 mb-4 flex items-center">
-                    <span className="mr-3">##</span>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-300 mb-3 sm:mb-4 flex items-center">
+                    <span className="mr-2 sm:mr-3">##</span>
                     <span className="gradient-text">Future Goals</span>
                   </h2>
-                  <div className="text-gray-200 leading-relaxed space-y-4 text-sm md:text-base">
+                  <div className="text-gray-200 leading-relaxed space-y-3 sm:space-y-4 text-sm sm:text-base">
                     <p>
                       While my current focus is on mastering <span className="font-semibold text-cyan-200">full-stack development</span> and delivering practical, scalable web solutions, I am preparing myself for the future of technology. Over the coming years, I plan to dive deep into <span className="font-semibold text-purple-200">emerging technologies</span> such as <span className="text-green-300 font-semibold">Blockchain</span>, <span className="text-blue-300 font-semibold">SaaS platforms</span>, <span className="text-yellow-200 font-semibold">Web3</span>, and <span className="text-orange-300 font-semibold">Cryptocurrency</span>—and many more evolving trends that are shaping the digital landscape.
                     </p>
@@ -497,11 +497,11 @@ export default function About() {
                     visible: { opacity: 1, y: 0, transition: { delay: 1.4, duration: 0.8, type: "spring" } },
                   }}
                 >
-                  <h2 className="text-2xl md:text-3xl font-bold text-cyan-300 mb-4 flex items-center">
-                    <span className="mr-3">##</span>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-cyan-300 mb-3 sm:mb-4 flex items-center">
+                    <span className="mr-2 sm:mr-3">##</span>
                     <span className="gradient-text">Beyond Tech</span>
                   </h2>
-                  <div className="text-gray-200 leading-relaxed space-y-4 text-sm md:text-base">
+                  <div className="text-gray-200 leading-relaxed space-y-3 sm:space-y-4 text-sm sm:text-base">
                     <p>
                       When I'm not coding, you'll often find me playing <span className="text-orange-300 font-semibold">football</span>, which keeps me active, sharp, and competitive. I'm also passionate about <span className="text-purple-300 font-semibold">personal growth, exploring new technologies, and discovering ways to combine creativity with logic</span>. Staying updated with the latest trends, learning continuously, and challenging myself every day are values I strongly believe in.
                     </p>
@@ -531,9 +531,9 @@ export default function About() {
               } 
             },
           }}
-          className="mt-12 pt-8 border-t border-white/10"
+          className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10"
         >
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
             {socialLinks.map((social, index) => {
               const IconComponent = social.icon;
               return (
@@ -564,7 +564,7 @@ export default function About() {
                   onMouseLeave={() => setHoveredSocial(null)}
                 >
                   {/* Button Container */}
-                  <div className={`w-16 h-16 ${social.bgColor} rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-300 relative overflow-hidden`}>
+                  <div className={`w-12 h-12 sm:w-16 sm:h-16 ${social.bgColor} rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-2xl transition-all duration-300 relative overflow-hidden`}>
                     {/* Animated Background */}
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
@@ -574,11 +574,11 @@ export default function About() {
                     />
                     
                     {/* Icon */}
-                    <IconComponent className="text-white text-2xl relative z-10 group-hover:scale-110 transition-transform duration-300" />
+                    <IconComponent className="text-white text-lg sm:text-2xl relative z-10 group-hover:scale-110 transition-transform duration-300" />
                     
                     {/* Glow Effect */}
                     <motion.div
-                      className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/30 to-transparent opacity-0"
+                      className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-white/30 to-transparent opacity-0"
                       whileHover={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}
                     />

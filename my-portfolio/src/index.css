@@ -8,4 +8,42 @@
 }
 
 body, html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 640px) {
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Ensure proper touch targets on mobile */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Smooth scrolling for all devices */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll on mobile */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
 }

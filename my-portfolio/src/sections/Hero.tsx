@@ -35,7 +35,7 @@ export default function Hero() {
       id="hero"
       ref={heroRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex flex-col justify-center items-center text-center bg-black overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center bg-black overflow-hidden px-4 sm:px-6 md:px-12 lg:px-24"
     >
       {/* Falling Particles Background */}
       <Particles
@@ -69,23 +69,23 @@ export default function Hero() {
       />
 
       {/* Hero Content */}
-      <div className="relative z-10 px-6 md:px-12 lg:px-24">
+      <div className="relative z-10 w-full max-w-6xl mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: 80 }}
           animate={controls}
           variants={{ visible: { opacity: 1, y: 0, transition: { duration: 1 } } }}
           style={{ x: parallaxX, y: parallaxY }}
-          className="font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight mb-4 text-white"
+          className="font-extrabold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight mb-4 sm:mb-6 text-white"
         >
           <span className="block">Hi, I'm</span>
-          <span className="block mt-1 gradient-outline-glow">RAUNAK KUMAR JHA</span>
+          <span className="block mt-1 sm:mt-2 gradient-outline-glow">RAUNAK KUMAR JHA</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 50 }}
           animate={controls}
           variants={{ visible: { opacity: 1, y: 0, transition: { delay: 0.3, duration: 1 } } }}
-          className="text-gray-200 text-lg sm:text-xl md:text-2xl max-w-3xl text-center mb-8 mx-auto"
+          className="text-gray-200 text-base sm:text-lg md:text-xl lg:text-2xl max-w-4xl text-center mb-6 sm:mb-8 mx-auto px-4"
         >
           An aspiring <span className="shimmer-text">Full Stack Developer</span> passionate about building sleek web experiences.
         </motion.p>
@@ -97,7 +97,7 @@ export default function Hero() {
           variants={{ visible: { opacity: 1, scale: 1, transition: { delay: 0.6, duration: 0.7 } } }}
           whileHover={{ scale: 1.1, boxShadow: '0 0 20px rgba(0,255,247,0.5)' }}
           whileTap={{ scale: 0.95 }}
-          className="inline-block px-12 py-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 rounded-full text-white font-semibold text-lg tracking-wide drop-shadow-xl"
+          className="inline-block px-8 sm:px-12 py-3 sm:py-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-500 rounded-full text-white font-semibold text-base sm:text-lg tracking-wide drop-shadow-xl"
         >
           VIEW PROJECTS
         </motion.a>
@@ -107,10 +107,10 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0, transition: { delay: 1 } }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-10"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-10"
       >
-        <div className="w-8 h-8 border-2 border-cyan-400 rounded-full flex items-center justify-center animate-bounce">
-          <span className="block w-2 h-2 bg-cyan-400 rounded-full"></span>
+        <div className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-cyan-400 rounded-full flex items-center justify-center animate-bounce">
+          <span className="block w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-400 rounded-full"></span>
         </div>
         <span className="mt-2 text-cyan-300 uppercase tracking-wider text-xs">Scroll</span>
       </motion.div>
