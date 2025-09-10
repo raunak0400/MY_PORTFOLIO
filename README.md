@@ -11,7 +11,7 @@
 
 ## 🌟 Live Demo
 
-**Visit the live portfolio:** [raunakportfoliowebsite.vercel.app](https://raunakportfoliowebsite.vercel.app)
+**Visit the live portfolio:** [imraunak.dev](https://www.imraunak.dev/)
 
 ## 📋 Table of Contents
 
