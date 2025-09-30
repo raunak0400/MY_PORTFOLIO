@@ -62,7 +62,7 @@ export default function About() {
     {
       name: "Gmail",
       icon: FaEnvelope,
-      href: "https://mail.google.com/mail/?view=cm&fs=1&to=raunakkumarjha233@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=contact@imraunak.dev",
       color: "from-red-500 to-red-600",
       hoverColor: "from-red-400 to-red-500",
       bgColor: "bg-gradient-to-br from-red-500 to-red-600"
@@ -98,7 +98,7 @@ export default function About() {
       id="about"
       ref={aboutRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex flex-col items-center justify-center py-8 sm:py-12 md:py-16 lg:py-24 bg-black overflow-hidden px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex flex-col items-center justify-center py-8 sm:py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       <AnimatedBackground />
       
@@ -107,7 +107,7 @@ export default function About() {
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
-            className="absolute w-1 h-1 bg-cyan-400/30 rounded-full"
+            className="absolute w-1 h-1 bg-amber-400/40 rounded-full"
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,
@@ -132,7 +132,7 @@ export default function About() {
 
       {/* Mouse Follow Effect */}
       <motion.div
-        className="fixed w-4 h-4 bg-cyan-400/20 rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed w-4 h-4 bg-amber-400/30 rounded-full pointer-events-none z-50 mix-blend-screen"
         animate={{
           x: mousePosition.x - 8,
           y: mousePosition.y - 8,
@@ -205,11 +205,11 @@ export default function About() {
           },
         }}
         style={{ x: parallaxX, y: parallaxY, willChange: 'transform' }}
-        className="relative z-10 w-full max-w-7xl mx-auto bg-white/10 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-white/20 p-4 sm:p-6 md:p-8 lg:p-12"
+        className="relative z-10 w-full max-w-7xl mx-auto bg-white/5 backdrop-blur-2xl rounded-3xl sm:rounded-[2rem] shadow-2xl border border-amber-500/20 p-4 sm:p-6 md:p-8 lg:p-12 hover:border-amber-400/30 transition-all duration-500"
       >
         {/* Glowing Border Effect */}
         <motion.div
-          className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 opacity-0"
+          className="absolute inset-0 rounded-3xl sm:rounded-[2rem] bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-amber-600/20 opacity-0"
           animate={{ opacity: [0, 0.5, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -240,7 +240,7 @@ export default function About() {
             >
               {/* Multiple Glowing Rings */}
               <motion.div
-                className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-cyan-400 to-blue-500 opacity-20 blur-xl"
+                className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-amber-400 to-orange-500 opacity-25 blur-xl"
                 animate={{ 
                   scale: [1, 1.2, 1],
                   opacity: [0.2, 0.4, 0.2]
@@ -248,7 +248,7 @@ export default function About() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-purple-400 to-pink-500 opacity-20 blur-lg"
+                className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-orange-400 to-amber-500 opacity-25 blur-lg"
                 animate={{ 
                   scale: [1.2, 1, 1.2],
                   opacity: [0.2, 0.4, 0.2]
@@ -257,7 +257,7 @@ export default function About() {
               />
               
               {/* Main Image Container */}
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-cyan-400/50 shadow-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl sm:rounded-3xl overflow-hidden border-4 border-amber-400/60 shadow-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/20">
                 <motion.div
                   className="w-full h-full"
                   whileHover={{ scale: 1.05 }}
@@ -268,7 +268,7 @@ export default function About() {
                 
                 {/* Animated Border */}
                 <motion.div
-                  className="absolute inset-0 rounded-2xl sm:rounded-3xl border-4 border-cyan-400 pointer-events-none"
+                  className="absolute inset-0 rounded-2xl sm:rounded-3xl border-4 border-amber-400 pointer-events-none"
                   animate={{ 
                     boxShadow: [
                       "0 0 20px rgba(6, 182, 212, 0.5)",
@@ -283,7 +283,7 @@ export default function About() {
               
               {/* Floating Elements Around Image */}
               <motion.div
-                className="absolute -top-2 -right-2 w-3 h-3 sm:w-4 sm:h-4 bg-cyan-400 rounded-full"
+                className="absolute -top-2 -right-2 w-3 h-3 sm:w-4 sm:h-4 bg-amber-400 rounded-full"
                 animate={{ 
                   y: [0, -10, 0],
                   opacity: [0.5, 1, 0.5]
@@ -291,7 +291,7 @@ export default function About() {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute -bottom-2 -left-2 w-2 h-2 sm:w-3 sm:h-3 bg-purple-400 rounded-full"
+                className="absolute -bottom-2 -left-2 w-2 h-2 sm:w-3 sm:h-3 bg-orange-400 rounded-full"
                 animate={{ 
                   y: [0, 10, 0],
                   opacity: [0.5, 1, 0.5]
@@ -319,7 +319,7 @@ export default function About() {
               className="w-full max-w-sm"
             >
               <motion.div
-                className="bg-gray-900/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-700/50 shadow-2xl relative overflow-hidden"
+                className="bg-gray-900/95 backdrop-blur-md rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-amber-500/30 shadow-2xl relative overflow-hidden"
                 whileHover={{ 
                   scale: 1.02, 
                   boxShadow: "0 12px 40px rgba(6, 182, 212, 0.4)",
@@ -336,12 +336,12 @@ export default function About() {
                   }}
                   transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                   style={{
-                    backgroundImage: "radial-gradient(circle, #06b6d4 1px, transparent 1px)"
+                    backgroundImage: "radial-gradient(circle, #f59e0b 1px, transparent 1px)"
                   }}
                 />
                 
                 <motion.div
-                  className="text-cyan-400 text-xs font-mono mb-2 sm:mb-3 opacity-70 flex items-center"
+                  className="text-amber-400 text-xs font-mono mb-2 sm:mb-3 opacity-70 flex items-center"
                   animate={{ opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
@@ -359,7 +359,7 @@ export default function About() {
                 </motion.p>
                 
                 <motion.div
-                  className="text-cyan-400 text-xs font-mono opacity-70 flex items-center justify-end"
+                  className="text-amber-400 text-xs font-mono opacity-70 flex items-center justify-end"
                   animate={{ opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 >
@@ -410,7 +410,7 @@ export default function About() {
                       Hi, I'm <span className="font-bold text-white">Raunak Kumar Jha</span>, a passionate and results-driven developer dedicated to building impactful digital experiences. I am currently pursuing a <span className="font-semibold text-cyan-200">B.Tech in Computer Science Engineering at Gandhinagar University</span>, complemented by a <span className="font-semibold text-yellow-200">micro-credit program from IIT Guwahati</span> to strengthen my technical expertise and industry exposure.
                     </p>
                     <p>
-                      My journey into technology began with curiosity—what started as experimenting with basic code quickly transformed into a deep passion for developing solutions that create real-world impact. Over time, I have honed my ability to think logically, solve complex problems, and build practical applications that combine both functionality and creativity.
+                      My journey into technology began with curiosity—what started as experimenting with basic code quickly transformed into a deep passion for developing solutions that create real-world impact. Over time, I have honed my ability to think logically, solve complex problems, and build practical applications that combine both <span className="text-amber-200 font-semibold">functionality and creativity</span>.
                     </p>
                     <p>
                       I firmly believe that technology is not just about coding; it is about understanding user needs, designing innovative solutions, and creating experiences that make a difference. Every project I work on is an opportunity to learn, adapt, and push my boundaries to become a better version of myself.
@@ -441,7 +441,7 @@ export default function About() {
                   </h2>
                   <div className="text-gray-200 leading-relaxed space-y-3 sm:space-y-4 text-sm sm:text-base">
                     <p>
-                      My vision is simple yet powerful: to <span className="font-semibold text-cyan-200">use technology as a tool for innovation and transformation</span>. I aim to create software solutions that simplify processes, enhance user experiences, and provide long-term value. Whether it's designing a clean user interface or optimizing backend processes for performance, I strive to build applications that are efficient, scalable, and impactful.
+                      My vision is simple yet powerful: to <span className="font-semibold text-amber-200">use technology as a tool for innovation and transformation</span>. I aim to create software solutions that simplify processes, enhance user experiences, and provide long-term value. Whether it's designing a clean user interface or optimizing backend processes for performance, I strive to build applications that are efficient, scalable, and impactful.
                     </p>
                     <p>
                       I approach each challenge with creativity, precision, and a mindset focused on problem-solving. For me, writing code is not just a skill—it's a responsibility to bring ideas to life with clarity and purpose.
@@ -472,7 +472,7 @@ export default function About() {
                   </h2>
                   <div className="text-gray-200 leading-relaxed space-y-3 sm:space-y-4 text-sm sm:text-base">
                     <p>
-                      While my current focus is on mastering <span className="font-semibold text-cyan-200">full-stack development</span> and delivering practical, scalable web solutions, I am preparing myself for the future of technology. Over the coming years, I plan to dive deep into <span className="font-semibold text-purple-200">emerging technologies</span> such as <span className="text-green-300 font-semibold">Blockchain</span>, <span className="text-blue-300 font-semibold">SaaS platforms</span>, <span className="text-yellow-200 font-semibold">Web3</span>, and <span className="text-orange-300 font-semibold">Cryptocurrency</span>—and many more evolving trends that are shaping the digital landscape.
+                      While my current focus is on mastering <span className="font-semibold text-amber-200">full-stack development</span> and delivering practical, scalable web solutions, I am preparing myself for the future of technology. Over the coming years, I plan to dive deep into <span className="font-semibold text-orange-200">emerging technologies</span> such as <span className="text-green-300 font-semibold">Blockchain</span>, <span className="text-blue-300 font-semibold">SaaS platforms</span>, <span className="text-yellow-200 font-semibold">Web3</span>, and <span className="text-amber-300 font-semibold">Cryptocurrency</span>—and many more evolving trends that are shaping the digital landscape.
                     </p>
                     <p>
                       These technologies represent the next big wave of innovation, and I want to position myself as a developer who not only understands the present but is ready for the future. My goal is to learn, experiment, and apply these cutting-edge skills to create solutions that are secure, decentralized, and transformative for businesses and individuals alike.

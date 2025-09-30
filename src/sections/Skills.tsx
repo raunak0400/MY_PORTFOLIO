@@ -17,14 +17,14 @@ export default function Skills() {
     <section
       id="skills"
       ref={skillsRef}
-      className="relative min-h-screen flex flex-col justify-center py-12 sm:py-16 bg-black overflow-hidden px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex flex-col justify-center py-12 sm:py-16 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-cyan-900/20" />
-        <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/20 to-amber-800/20" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/15 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-600/15 rounded-full blur-3xl animate-pulse delay-500" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -45,7 +45,7 @@ export default function Skills() {
             }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 gradient-shimmer"
           >
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Skills</span>
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Skills</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -111,10 +111,14 @@ export default function Skills() {
             Always learning and expanding my skill set
           </motion.p>
           <motion.button
-            whileHover={{ scale: 1.08, boxShadow: "0 0 32px #38bdf8, 0 0 80px #2563eb" }}
+            whileHover={{ scale: 1.08, boxShadow: "0 0 32px #f59e0b, 0 0 80px #d97706" }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-semibold 
-                     hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg text-sm sm:text-base"
+            className="px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full text-white font-semibold 
+                     hover:from-amber-400 hover:to-orange-500 transition-all duration-300 shadow-lg text-sm sm:text-base"
+            data-cursor-hover
+            data-cursor-text="See My Projects"
+            data-cursor-magnetic
+            data-magnetic-strength="100"
             onClick={() => {
               const el = document.getElementById('projects');
               if (el) {

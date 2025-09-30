@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailJS Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <h1>EmailJS Test</h1>
+    <form id="testForm">
+        <input type="text" id="name" placeholder="Your Name" required><br><br>
+        <input type="email" id="email" placeholder="Your Email" required><br><br>
+        <input type="text" id="subject" placeholder="Subject" required><br><br>
+        <textarea id="message" placeholder="Message" required></textarea><br><br>
+        <button type="submit">Send Test Email</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        // Initialize EmailJS with your actual credentials
+        emailjs.init('UI09JXtXFWladzDdu'); // Your public key
+
+        document.getElementById('testForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const result = document.getElementById('result');
+            result.innerHTML = 'Sending...';
+            
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                to_name: 'Raunak Kumar Jha',
+                reply_to: document.getElementById('email').value
+            };
+
+            emailjs.send('service_df4gq8y', 'template_ob70vou', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    result.innerHTML = '<p style="color: green;">Email sent successfully!</p>';
+                    document.getElementById('testForm').reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    result.innerHTML = '<p style="color: red;">Failed to send email: ' + error.text + '</p>';
+                });
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</body>
+</html>

@@ -71,14 +71,14 @@ const Projects = () => {
     <section
       id="projects"
       ref={projectsRef}
-      className="relative min-h-screen flex flex-col justify-center py-12 sm:py-16 bg-black overflow-hidden px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex flex-col justify-center py-12 sm:py-16 bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden px-4 sm:px-6 lg:px-8"
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-cyan-900/20" />
-        <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-orange-900/20 to-amber-800/20" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500/15 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-600/15 rounded-full blur-3xl animate-pulse delay-500" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto w-full">
@@ -98,9 +98,9 @@ const Projects = () => {
               visible: { opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.8, type: "spring" } }
             }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 gradient-shimmer"
-            style={{ background: 'linear-gradient(90deg, #06b6d4, #2563eb, #a78bfa, #f472b6)', WebkitBackgroundClip: 'text', color: 'transparent', backgroundClip: 'text' }}
+            style={{ background: 'linear-gradient(90deg, #f59e0b, #d97706, #92400e, #f59e0b)', WebkitBackgroundClip: 'text', color: 'transparent', backgroundClip: 'text' }}
           >
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projects</span>
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Projects</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -128,7 +128,7 @@ const Projects = () => {
               onClick={() => setIsGitHubMode(false)}
               className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
                 !isGitHubMode 
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg' 
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg' 
                   : 'text-gray-300 hover:text-white'
               }`}
               whileHover={{ scale: 1.05 }}
@@ -140,7 +140,7 @@ const Projects = () => {
               onClick={() => setIsGitHubMode(true)}
               className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-1 sm:gap-2 ${
                 isGitHubMode 
-                  ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg' 
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg' 
                   : 'text-gray-300 hover:text-white'
               }`}
               whileHover={{ scale: 1.05 }}
@@ -182,7 +182,7 @@ const Projects = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 className="bg-white/10 backdrop-blur-xl rounded-2xl h-64 sm:h-80 flex items-center justify-center"
               >
-                <div className="flex items-center gap-3 text-cyan-400">
+                <div className="flex items-center gap-3 text-amber-400">
                   <FaSpinner className="animate-spin text-lg sm:text-xl" />
                   <span className="text-sm sm:text-base">Loading...</span>
                 </div>
@@ -198,7 +198,7 @@ const Projects = () => {
               <p className="text-gray-400 mb-6 text-sm sm:text-base">{error}</p>
               <motion.button
                 onClick={fetchGitHubProjects}
-                className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 text-sm sm:text-base"
+                className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-lg hover:from-amber-400 hover:to-orange-500 transition-all duration-300 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -213,7 +213,7 @@ const Projects = () => {
               </div>
               <motion.button
                 onClick={() => setActiveFilter('all')}
-                className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 text-sm sm:text-base"
+                className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-lg hover:from-amber-400 hover:to-orange-500 transition-all duration-300 text-sm sm:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -268,10 +268,15 @@ const Projects = () => {
             href="https://github.com/raunak0400"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.08, boxShadow: "0 0 32px #38bdf8, 0 0 80px #2563eb" }}
+            whileHover={{ scale: 1.08, boxShadow: "0 0 32px #f59e0b, 0 0 80px #d97706" }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full text-white font-semibold 
-                     hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-lg text-sm sm:text-base"
+            className="inline-flex items-center gap-2 px-6 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full text-white font-semibold 
+                     hover:from-amber-400 hover:to-orange-500 transition-all duration-300 shadow-lg text-sm sm:text-base"
+            data-cursor-hover
+            data-cursor-text="Visit GitHub"
+            data-cursor-view
+            data-cursor-magnetic
+            data-magnetic-strength="110"
           >
             <FaGithub />
             <span className="hidden sm:inline">View More on GitHub</span>

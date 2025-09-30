@@ -60,7 +60,7 @@ export default function Navbar() {
             className="h-10 w-10 sm:h-12 sm:w-12 object-contain rounded-full shadow-md"
             style={{ background: "#fff" }}
           />
-          <span className="text-lg sm:text-xl font-extrabold text-blue-600 tracking-tight select-none hidden sm:inline">
+          <span className="text-lg sm:text-xl font-extrabold text-amber-600 tracking-tight select-none hidden sm:inline">
             MyPortfolio
           </span>
         </div>
@@ -79,14 +79,14 @@ export default function Navbar() {
                 smooth={true}
                 duration={500}
                 offset={-70}
-                className="cursor-pointer text-gray-700 font-semibold transition-colors duration-200 px-2 py-1 rounded-md group-hover:text-blue-700 group-hover:bg-blue-50"
-                activeClass="text-blue-700 font-bold bg-blue-100"
+                className="cursor-pointer text-gray-700 font-semibold transition-colors duration-200 px-2 py-1 rounded-md group-hover:text-amber-700 group-hover:bg-amber-50"
+                activeClass="text-amber-700 font-bold bg-amber-100"
                 spy={true}
               >
                 <span className="relative z-10">{link.name}</span>
                 {/* Animated Underline */}
                 <motion.span
-                  className="absolute left-0 bottom-0 h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"
+                  className="absolute left-0 bottom-0 h-1 bg-gradient-to-r from-amber-400 to-amber-600 rounded-full"
                   variants={underlineVariants}
                   initial="initial"
                   whileHover="hover"
@@ -106,16 +106,17 @@ export default function Navbar() {
             <motion.a
               href="/assets/resume.pdf"
               download
-              className="relative px-6 py-2 rounded-full font-extrabold text-white bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400 shadow-xl border-2 border-blue-500 transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 overflow-hidden flex items-center justify-center text-sm"
+              className="relative px-6 py-2 rounded-full font-extrabold text-white bg-gradient-to-r from-amber-600 via-orange-500 to-amber-500 shadow-xl border-2 border-amber-500 transition-all duration-300 outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 overflow-hidden flex items-center justify-center text-sm"
               whileHover={{
-                boxShadow: '0 0 32px 8px #38bdf8, 0 0 80px 20px #2563eb',
-                background: 'linear-gradient(90deg, #2563eb 0%, #38bdf8 100%)',
+                boxShadow: '0 0 32px 8px #f59e0b, 0 0 80px 20px #d97706',
+                background: 'linear-gradient(90deg, #d97706 0%, #f59e0b 100%)',
               }}
+              whileTap={{ scale: 0.97 }}
             >
               <span className="relative z-10">Resume</span>
               {/* Animated Glow Border */}
               <motion.span
-                className="absolute inset-0 rounded-full border-4 border-cyan-400 opacity-40 blur-lg animate-pulse pointer-events-none"
+                className="absolute inset-0 rounded-full border-4 border-amber-400 opacity-40 blur-lg animate-pulse pointer-events-none"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, repeat: Infinity, repeatType: 'reverse' }}
@@ -136,7 +137,7 @@ export default function Navbar() {
         <div className="lg:hidden">
           <motion.button
             onClick={toggleMobileMenu}
-            className="p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+            className="p-2 text-gray-700 hover:text-amber-600 transition-colors duration-200"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -173,10 +174,10 @@ export default function Navbar() {
               <div className="flex flex-col h-full">
                 {/* Mobile Menu Header */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-200">
-                  <span className="text-xl font-bold text-blue-600">Menu</span>
+                  <span className="text-xl font-bold text-amber-600">Menu</span>
                   <motion.button
                     onClick={closeMobileMenu}
-                    className="p-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                    className="p-2 text-gray-700 hover:text-amber-600 transition-colors duration-200"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -201,8 +202,8 @@ export default function Navbar() {
                           duration={500}
                           offset={-70}
                           onClick={closeMobileMenu}
-                          className="block text-lg font-semibold text-gray-700 hover:text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-50 transition-all duration-200"
-                          activeClass="text-blue-600 bg-blue-50"
+                          className="block text-lg font-semibold text-gray-700 hover:text-amber-600 py-3 px-4 rounded-lg hover:bg-amber-50 transition-all duration-200"
+                          activeClass="text-amber-600 bg-amber-50"
                           spy={true}
                         >
                           {link.name}
@@ -218,7 +219,7 @@ export default function Navbar() {
                     href="/assets/resume.pdf"
                     download
                     onClick={closeMobileMenu}
-                    className="block w-full text-center py-3 px-6 bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400 text-white font-semibold rounded-lg shadow-lg hover:from-blue-600 hover:to-cyan-500 transition-all duration-300"
+                    className="block w-full text-center py-3 px-6 bg-gradient-to-r from-amber-600 via-orange-500 to-amber-500 text-white font-semibold rounded-lg shadow-lg hover:from-amber-500 hover:to-orange-400 transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailJS Debug Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        button {
+            background: #f59e0b;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #d97706;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid #10b981;
+        }
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #ef4444;
+        }
+        .loading {
+            background: #fef3c7;
+            color: #92400e;
+            border: 2px solid #f59e0b;
+        }
+        .debug {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-family: monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 EmailJS Debug Test</h1>
+        <p><strong>Testing your EmailJS configuration:</strong></p>
+        <ul>
+            <li>Service ID: <code>service_df4gq8y</code></li>
+            <li>Template ID: <code>template_ob70vou</code></li>
+            <li>Public Key: <code>UI09JXtXFWladzDdu</code></li>
+        </ul>
+
+        <form id="testForm">
+            <input type="text" id="name" placeholder="Your Name" value="Test User" required>
+            <input type="email" id="email" placeholder="Your Email" value="test@example.com" required>
+            <input type="text" id="subject" placeholder="Subject" value="Test Email from Portfolio" required>
+            <textarea id="message" placeholder="Message" rows="4" required>This is a test message to verify EmailJS is working correctly.</textarea>
+            <button type="submit" id="submitBtn">🚀 Send Test Email</button>
+        </form>
+
+        <div id="result"></div>
+        <div id="debug" class="debug" style="display: none;"></div>
+    </div>
+
+    <script>
+        // Initialize EmailJS
+        emailjs.init('UI09JXtXFWladzDdu');
+        
+        const resultDiv = document.getElementById('result');
+        const debugDiv = document.getElementById('debug');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function showResult(message, type) {
+            resultDiv.className = `result ${type}`;
+            resultDiv.innerHTML = message;
+            resultDiv.style.display = 'block';
+        }
+
+        function showDebug(info) {
+            debugDiv.innerHTML = info;
+            debugDiv.style.display = 'block';
+        }
+
+        document.getElementById('testForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '⏳ Sending...';
+            showResult('Sending email...', 'loading');
+            
+            const templateParams = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                reply_to: document.getElementById('email').value
+            };
+
+            showDebug(`Template Parameters:
+${JSON.stringify(templateParams, null, 2)}
+
+Sending to EmailJS...`);
+
+            try {
+                const response = await emailjs.send('service_df4gq8y', 'template_ob70vou', templateParams);
+                
+                showDebug(`Template Parameters:
+${JSON.stringify(templateParams, null, 2)}
+
+EmailJS Response:
+Status: ${response.status}
+Text: ${response.text}
+
+✅ SUCCESS! Email sent successfully.`);
+
+                showResult('✅ Email sent successfully! Check your Gmail inbox.', 'success');
+                
+            } catch (error) {
+                console.error('EmailJS Error:', error);
+                
+                showDebug(`Template Parameters:
+${JSON.stringify(templateParams, null, 2)}
+
+❌ EmailJS Error:
+${JSON.stringify(error, null, 2)}
+
+Common Issues:
+1. Template variables don't match
+2. Gmail service not connected
+3. Template not active
+4. Wrong service/template IDs`);
+
+                showResult(`❌ Failed to send email: ${error.text || error.message || 'Unknown error'}`, 'error');
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '🚀 Send Test Email';
+        });
+    </script>
+</body>
+</html>

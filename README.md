@@ -436,7 +436,7 @@ SOFTWARE.
 - **Instagram**: [@raunak.____.07](https://instagram.com/raunak.____.07)
 - **Twitter**: [@raunak0400](https://twitter.com/raunak0400)
 - **LeetCode**: [raunak0400](https://leetcode.com/raunak0400)
-- **Email**: raunakkumarjha233@gmail.com
+- **Email**: contact@imraunak.dev
 
 ### About the Developer
 - **Location**: Gandhinagar, Gujarat, India

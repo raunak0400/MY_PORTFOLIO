@@ -35,7 +35,7 @@ const socialItems: SocialItem[] = [
   {
     name: 'Gmail',
     Icon: FaEnvelope,
-    url: 'mailto:raunakkumarjha233@gmail.com',
+    url: 'mailto:contact@imraunak.dev',
     gradient: 'from-red-500 to-orange-400',
     shadowColor: '#f87171',
   },
