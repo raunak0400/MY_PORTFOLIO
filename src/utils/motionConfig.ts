@@ -1,4 +1,4 @@
-import { Variants, Transition } from 'framer-motion';
+import type { Variants, Transition } from 'framer-motion';
 
 // Check if user prefers reduced motion
 const prefersReducedMotion = () => {
@@ -20,18 +20,18 @@ const getPerformanceTier = (): 'low' | 'medium' | 'high' => {
 };
 
 // Performance-aware transition configs
-export const transitionConfigs = {
+export const transitionConfigs: Record<'low' | 'medium' | 'high', Transition> = {
   low: {
     duration: 0.2,
-    ease: 'easeOut'
+    ease: 'easeOut' as const
   },
   medium: {
     duration: 0.4,
-    ease: 'easeOut'
+    ease: 'easeOut' as const
   },
   high: {
     duration: 0.6,
-    ease: [0.25, 0.46, 0.45, 0.94]
+    ease: [0.25, 0.46, 0.45, 0.94] as const
   }
 };
 
@@ -93,25 +93,52 @@ export const staggerContainerVariants = createAdaptiveVariants({
 });
 
 // Optimized spring configs
-export const springConfigs = {
-  low: { damping: 40, stiffness: 200 },
-  medium: { damping: 30, stiffness: 400 },
-  high: { damping: 25, stiffness: 700 }
+import type { Spring } from 'framer-motion';
+
+type SpringConfig = Omit<Spring, 'type'> & { type: 'spring' };
+
+const springConfigs: Record<'low' | 'medium' | 'high', SpringConfig> = {
+  low: {
+    type: 'spring',
+    damping: 40,
+    stiffness: 200,
+    restDelta: 0.001,
+    restSpeed: 10
+  },
+  medium: {
+    type: 'spring',
+    damping: 30,
+    stiffness: 400,
+    restDelta: 0.001,
+    restSpeed: 10
+  },
+  high: {
+    type: 'spring',
+    damping: 25,
+    stiffness: 700,
+    restDelta: 0.001,
+    restSpeed: 10
+  }
 };
 
-export const getOptimizedSpring = () => springConfigs[getPerformanceTier()];
+export const getOptimizedSpring = () => {
+  return springConfigs[getPerformanceTier()];
+};
 
-// Performance-aware transition
+// Performance-aware transition configuration
 export const getOptimizedTransition = (customTransition?: Transition): Transition => {
-  const tier = getPerformanceTier();
-  const reducedMotion = prefersReducedMotion();
+  if (customTransition) return customTransition;
   
-  if (reducedMotion) {
-    return { duration: 0 };
+  const performanceTier = getPerformanceTier();
+  const baseTransition = transitionConfigs[performanceTier];
+  
+  if (performanceTier === 'low' || prefersReducedMotion()) {
+    return {
+      ...baseTransition,
+      type: 'tween' as const,
+      ease: 'linear' as const
+    };
   }
   
-  return {
-    ...transitionConfigs[tier],
-    ...customTransition
-  };
+  return baseTransition;
 };

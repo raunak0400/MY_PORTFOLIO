@@ -5,23 +5,21 @@ interface OptimizedImageProps {
   src: string;
   alt: string;
   className?: string;
-  placeholder?: string;
   lazy?: boolean;
-  quality?: number;
 }
+
+const placeholderImage = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PC9zdmc+';
 
 export default function OptimizedImage({
   src,
   alt,
   className = '',
-  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PC9zdmc+',
   lazy = true,
-  quality = 75
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(!lazy);
   const [error, setError] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!lazy) return;
@@ -36,23 +34,39 @@ export default function OptimizedImage({
       { threshold: 0.1, rootMargin: '50px' }
     );
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
+    const currentRef = containerRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+      observer.disconnect();
+    };
   }, [lazy]);
 
-  const handleLoad = () => {
-    setIsLoaded(true);
-  };
-
-  const handleError = () => {
-    setError(true);
-  };
+  useEffect(() => {
+    if (isInView && containerRef.current) {
+      const img = new Image();
+      img.src = src;
+      
+      const handleLoad = () => setIsLoaded(true);
+      const handleError = () => setError(true);
+      
+      img.addEventListener('load', handleLoad);
+      img.addEventListener('error', handleError);
+      
+      return () => {
+        img.removeEventListener('load', handleLoad);
+        img.removeEventListener('error', handleError);
+      };
+    }
+  }, [isInView, src]);
 
   return (
-    <div className={`relative overflow-hidden ${className}`} ref={imgRef}>
+    <div className={`relative overflow-hidden ${className}`} ref={containerRef}>
       {/* Placeholder */}
       {!isLoaded && !error && (
         <motion.div
@@ -77,16 +91,17 @@ export default function OptimizedImage({
       {/* Actual image */}
       {isInView && (
         <motion.img
-          src={src}
+          src={error ? placeholderImage : src}
           alt={alt}
-          className={`w-full h-full object-cover transition-opacity duration-500 ${
+          className={`block w-full h-auto transition-opacity duration-300 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoad={handleLoad}
-          onError={handleError}
+          } ${className}`}
           loading={lazy ? 'lazy' : 'eager'}
           decoding="async"
-          initial={{ scale: 1.1 }}
+          style={{
+            contentVisibility: 'auto',
+          }}
+          initial={false}
           animate={{ scale: isLoaded ? 1 : 1.1 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         />
