@@ -8,6 +8,7 @@ import {
   FaTwitter, 
   FaGithub, 
   FaEnvelope,
+  FaFacebook,
   FaQuoteLeft,
   FaQuoteRight
 } from "react-icons/fa";
@@ -54,10 +55,18 @@ export default function About() {
     {
       name: "Instagram",
       icon: FaInstagram,
-      href: "https://instagram.com/raunak.____.07",
+      href: "https://www.instagram.com/imraunak.dev/",
       color: "from-pink-500 to-purple-600",
       hoverColor: "from-pink-400 to-purple-500",
       bgColor: "bg-gradient-to-br from-pink-500 to-purple-600"
+    },
+    {
+      name: "Facebook",
+      icon: FaFacebook,
+      href: "https://www.facebook.com/imraunak.dev",
+      color: "from-blue-600 to-blue-700",
+      hoverColor: "from-blue-500 to-blue-600",
+      bgColor: "bg-gradient-to-br from-blue-600 to-blue-700"
     },
     {
       name: "Gmail",

@@ -303,13 +303,13 @@ const Contact = () => {
                 <div>
                   <p className="text-white font-medium">Instagram</p>
                   <a 
-                    href="https://instagram.com/raunak.____.07" 
+                    href="https://www.instagram.com/imraunak.dev/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-amber-400 hover:text-amber-300 transition-colors text-sm sm:text-base"
                     data-cursor-text="Follow"
                   >
-                    @raunak.____.07
+                    @imraunak.dev
                   </a>
                 </div>
               </div>

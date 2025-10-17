@@ -4,6 +4,7 @@ import {
   FaGithub, 
   FaLinkedin, 
   FaInstagram, 
+  FaFacebook, 
   FaHeart, 
   FaTwitter, 
   FaChevronUp,
@@ -30,11 +31,18 @@ const socials = [
     hoverColor: '#005885',
   },
   {
-    href: 'https://instagram.com/raunak.____.07',
+    href: 'https://www.instagram.com/imraunak.dev/',
     icon: FaInstagram,
     label: 'Instagram',
     color: '#E4405F',
     hoverColor: '#C13584',
+  },
+  {
+    href: 'https://www.facebook.com/imraunak.dev',
+    icon: FaFacebook,
+    label: 'Facebook',
+    color: '#1877F2',
+    hoverColor: '#166FE5',
   },
   {
     href: 'https://leetcode.com/raunak0400',

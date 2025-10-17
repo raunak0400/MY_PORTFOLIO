@@ -4,7 +4,8 @@ import {
   FaInstagram,
   FaLinkedin,
   FaGithub,
-  FaEnvelope
+  FaEnvelope,
+  FaFacebook
 } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 
@@ -21,9 +22,16 @@ const socialItems: SocialItem[] = [
   {
     name: 'Instagram',
     Icon: FaInstagram,
-    url: 'https://instagram.com/raunak.____.07',
+    url: 'https://www.instagram.com/imraunak.dev/',
     gradient: 'from-pink-500 via-red-400 to-yellow-400',
     shadowColor: '#f472b6',
+  },
+  {
+    name: 'Facebook',
+    Icon: FaFacebook,
+    url: 'https://www.facebook.com/imraunak.dev',
+    gradient: 'from-blue-600 to-blue-500',
+    shadowColor: '#3b82f6',
   },
   {
     name: 'LinkedIn',
